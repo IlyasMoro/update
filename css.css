@@ -1,0 +1,332 @@
+/* Custom Properties (CSS Variables) */
+:root {
+  /* Colors */
+  --primary-color: #063458; /* Dark Blue */
+  --secondary-color: #341366; /* Dark Purple */
+  --accent-color: #007bff; /* Bright Blue, for default Bootstrap primary */
+  --text-color: #222;
+  --light-text-color: #555;
+  --background-color: #f8f9fa; /* Light Gray */
+  --card-bg-color: #fff;
+  --border-color: #e0e0e0;
+  --shadow-color: rgba(0, 0, 0, 0.05);
+  --gradient-start: var(--primary-color);
+  --gradient-end: var(--secondary-color);
+
+  /* Fonts */
+  --heading-font: 'Montserrat', sans-serif;
+  --body-font: 'Roboto', sans-serif;
+
+  /* Spacing */
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 3rem;
+}
+
+/* Dark Mode Variables */
+body.dark-mode {
+  --primary-color: #845ef7; /* Lighter Purple for dark mode primary */
+  --secondary-color: #4b2a8d; /* Darker Purple for dark mode secondary */
+  --text-color: #f1f1f1;
+  --light-text-color: #ccc;
+  --background-color: #1a1a2e; /* Dark Blue-Purple */
+  --card-bg-color: #2c2c4d; /* Slightly lighter dark blue-purple */
+  --border-color: #444;
+  --shadow-color: rgba(0, 0, 0, 0.3);
+  --gradient-start: var(--secondary-color);
+  --gradient-end: var(--primary-color);
+}
+
+
+/* Reset and base styles */
+body {
+  font-family: var(--body-font);
+  font-weight: 400;
+  color: var(--text-color);
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: var(--background-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--heading-font);
+  color: var(--primary-color); /* Headings use primary color by default */
+  font-weight: 700; /* Bold headings */
+  margin-bottom: var(--spacing-md);
+  transition: color 0.3s ease;
+}
+
+p {
+  line-height: 1.6;
+  margin-bottom: var(--spacing-md);
+  font-weight: 400;
+  color: var(--text-color);
+  transition: color 0.3s ease;
+}
+
+a {
+  text-decoration: none;
+  color: var(--primary-color);
+  transition: color 0.2s ease;
+}
+a:hover {
+  color: var(--secondary-color);
+}
+
+button, .btn {
+  font-family: var(--body-font);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+/* Navbar */
+.navbar {
+  box-shadow: 0 4px 12px var(--shadow-color);
+  background: var(--card-bg-color);
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+.navbar-brand {
+  font-weight: 900;
+  font-size: 2rem;
+  color: var(--primary-color) !important;
+  letter-spacing: 1px;
+  transition: color 0.3s ease;
+}
+.nav-link {
+  font-weight: 600;
+  color: var(--text-color) !important; /* Overrides Bootstrap default */
+  transition: color 0.2s ease;
+}
+.nav-link:hover, .nav-link.active {
+  color: var(--secondary-color) !important;
+}
+
+/* Buttons */
+.btn-gradient {
+  background: linear-gradient(90deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
+  border: none;
+  color: #fff;
+  border-radius: 30px;
+  padding: var(--spacing-sm) var(--spacing-md) * 1.5; /* 0.5rem 1.5rem */
+  box-shadow: 0 4px 10px rgba(52, 19, 102, 0.2);
+}
+.btn-gradient:hover {
+  background: linear-gradient(90deg, var(--gradient-end) 0%, var(--gradient-start) 100%);
+  color: #fff;
+  box-shadow: 0 6px 15px rgba(52, 19, 102, 0.3);
+  transform: translateY(-2px);
+}
+.btn-secondary {
+  background-color: var(--border-color);
+  border-color: var(--border-color);
+  color: var(--text-color);
+}
+.btn-secondary:hover {
+  background-color: var(--light-text-color);
+  border-color: var(--light-text-color);
+  color: #fff;
+}
+/* Ensure dark mode colors for buttons */
+body.dark-mode .btn-secondary {
+  background-color: #444;
+  border-color: #444;
+  color: #f1f1f1;
+}
+body.dark-mode .btn-secondary:hover {
+  background-color: #555;
+  border-color: #555;
+}
+
+
+/* Hero Section */
+.hero {
+  background: linear-gradient(120deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+  color: #fff;
+  padding: var(--spacing-xl) 0; /* 3rem 0 */
+  text-align: center;
+  border-radius: 0 0 2rem 2rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  margin-bottom: var(--spacing-xl);
+}
+.hero h1 {
+  font-family: var(--heading-font);
+  font-weight: 900; /* Extra bold for hero heading */
+  font-size: 3.5rem; /* Large font size for impact */
+  color: #fff;
+  text-shadow: 0 2px 5px rgba(0,0,0,0.3);
+  margin-bottom: var(--spacing-sm);
+  letter-spacing: 0.5px;
+}
+.hero p {
+  font-family: var(--heading-font);
+  font-weight: 400;
+  font-size: 1.25rem;
+  color: #fff;
+  opacity: 0.9;
+}
+
+/* Form */
+#jobFilterForm {
+  background: var(--card-bg-color);
+  padding: var(--spacing-lg) !important;
+  border-radius: 1rem;
+  box-shadow: 0 4px 20px var(--shadow-color);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+#jobFilterForm .form-control, #jobFilterForm .form-select {
+  border-color: var(--border-color);
+  transition: border-color 0.2s ease, background-color 0.3s ease;
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+#jobFilterForm .form-control::placeholder {
+  color: var(--light-text-color);
+}
+body.dark-mode #jobFilterForm .form-control, body.dark-mode #jobFilterForm .form-select {
+  background-color: #3a3a5a;
+  border-color: #555;
+  color: #f1f1f1;
+}
+body.dark-mode #jobFilterForm .form-control::placeholder {
+  color: #aaa;
+}
+
+
+/* Job Cards */
+.job-card {
+  background: var(--card-bg-color);
+  border: 1px solid var(--border-color);
+  border-radius: 1rem;
+  box-shadow: 0 4px 15px var(--shadow-color);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.3s ease, border-color 0.3s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.job-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(52, 19, 102, 0.15); /* More pronounced shadow on hover */
+}
+.job-card .card-title {
+  font-family: var(--heading-font);
+  font-weight: 700;
+  color: var(--primary-color);
+  font-size: 1.35rem;
+}
+.job-card .card-subtitle {
+  color: var(--light-text-color) !important; /* Bootstrap .text-muted is too light in dark mode */
+}
+.job-card .card-text {
+  font-size: 0.95rem;
+  color: var(--text-color);
+}
+.job-card .btn-gradient {
+  margin-top: auto; /* Pushes button to the bottom */
+}
+
+
+/* Job Summary */
+#jobSummary p {
+  font-family: var(--heading-font);
+  font-weight: 600;
+  color: var(--primary-color);
+  font-size: 1.1rem;
+  margin-bottom: 0;
+  user-select: none;
+  transition: color 0.3s ease;
+}
+
+/* Footer */
+footer {
+  background: var(--primary-color);
+  color: #fff;
+  border-top: 5px solid var(--secondary-color);
+  font-size: 0.95rem;
+  font-family: var(--body-font);
+  transition: background-color 0.3s ease, border-top-color 0.3s ease;
+}
+body.dark-mode footer {
+  background: #1a1a2e;
+  border-top-color: #845ef7;
+}
+
+/* Spinner */
+.spinner-border.text-primary {
+  color: var(--primary-color) !important; /* Overrides Bootstrap default for brand primary */
+}
+
+/* Modal Styling */
+.modal-content {
+  background-color: var(--card-bg-color);
+  color: var(--text-color);
+  border-radius: 1rem;
+  box-shadow: 0 8px 30px var(--shadow-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+.modal-header, .modal-footer {
+  border-color: var(--border-color);
+}
+.modal-title {
+  color: var(--primary-color);
+}
+.modal-body .form-label {
+  color: var(--text-color);
+}
+.modal-body .form-control {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  border-color: var(--border-color);
+}
+body.dark-mode .modal-body .form-control {
+  background-color: #3a3a5a;
+  border-color: #555;
+  color: #f1f1f1;
+}
+
+/* View Sections */
+.view-section {
+  display: none; /* Hidden by default */
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+}
+.view-section.active {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Responsive adjustments */
+@media (max-width: 991.98px) { /* Medium devices and below */
+  .navbar-collapse {
+    text-align: center;
+    padding-bottom: var(--spacing-md);
+  }
+  .auth-controls {
+    justify-content: center !important;
+    margin-top: var(--spacing-md);
+  }
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+  .hero p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 767.98px) { /* Small devices and below */
+  #jobFilterForm {
+    padding: var(--spacing-md) !important;
+  }
+  .job-card .card-title {
+    font-size: 1.2rem;
+  }
+  .hero h1 {
+    font-size: 2rem;
+  }
+}
+
